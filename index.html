@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<div id="header">
+	<img style="vertical-align: middle" src="icons/logo.svg" width="20%" alt="Mangos EGP Designer"/>
+	<a href="https://editor.p5js.org/kevin.stoetzel/full/JWvkPnuzo" align="right" style="vertical-align: middle;">Original</a>
+</div>
+<html lang="en">
+  <head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+    <script src="page.js"></script>
+    
+    <script src="egpobject.js"></script>
+    <script src="egpobjectbox.js"></script>
+    <script src="egpobjectroundedbox.js"></script>
+    <script src="egpobjectcircle.js"></script>
+    <script src="egpobjecttext.js"></script>
+    
+    <script src="propertie.js"></script>
+    <script src="event.js"></script>
+	
+    
+    <!--- Pages --->
+    <div id="topsettings">
+		<div style="padding-bottom: 1%">
+    		<select name="pages" id="pages" onchange="changePage()"></select>
+    <!--- Boutons --->    
+    		<input class="imgButton" type="image" src="icons/Square.png" width="30" onclick="add_object('box')" alt="Square"/>
+    		<input class="imgButton" type="image" src="icons/RoundedSq.png" width="30" onclick="add_object('roundedbox')" alt="Rounded Square"/>
+    		<input class="imgButton" type="image" src="icons/Ellipse.png" width="30" onclick="add_object('circle')" alt="Ellipse"/>
+    		<input class="imgButton" type="image" src="icons/Text.png" width="30" onclick="add_object('text')" alt="Text"/>
+    		<input align="right" class="imgButton" type="image" src="icons/Comp.png" width="30" onclick="generateCode()" alt="Compile"/>
+		</div>
+
+    <!--- Selection --->
+    	<div style="padding-bottom: 1%">
+			<b>Layer:</b>
+    		<select name="object_selected" id="object_selected" onchange="newselect()"></select>
+    		<input class="imgButton" type="image" src="icons/Delete.png" width="30" onclick="delObject()" alt="Delete"/>
+		</div>
+	</div>
+
+    <!--- Properties --->
+    
+    <div class="row">
+    <div class="column"><h3>Properties</h3><ul id="properties"><b>Create an object to get started</b></ul></div>
+    <div class="column">
+	<h3>Events</h3>
+    <select name="event_trigger" id="event_trigger">
+        <option onclick="refreshEvent()" value="if_first">If First</option>
+        <option onclick="refreshEvent()" value="if_loop">If Loop</option>
+        <option onclick="refreshEvent()" value="if_click">If ... Clicked</option>
+    </select>
+    <select name="event_trigger_object" id="event_trigger_object">
+    </select>
+    <select name="event_type" id="event_type">
+        <option onclick="refreshEvent()" value="change_text">Change Text</option>
+        <option onclick="refreshEvent()" value="change_color">Change Color</option>
+        <option onclick="refreshEvent()" value="play_sound">Play Sound</option>
+      <option onclick="refreshEvent()" value="change_page">Change Page</option>
+    </select>
+    <br>
+    <ul id="events_properties"></ul>
+    <button type="button" id="button_addevent" onclick="addEvent()">Add Event</button><br>
+    <ul id="events_list"></ul>
+    </div>
+    </div>
+
+  </body>
+</html>
